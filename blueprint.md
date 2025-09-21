@@ -21,6 +21,10 @@ CouplesApp is a web application designed to help couples strengthen their relati
     - `layout.tsx`: Custom layout for the signup page, removing the footer.
   - **/pairing**: The page for users to pair their accounts.
     - `layout.tsx`: Custom layout for the pairing page, removing the footer.
+  - **/forgot-password**: The page for users to request a password reset.
+    - `layout.tsx`: Custom layout for the forgot-password page.
+  - **/reset-password**: The page for users to reset their password.
+    - `layout.tsx`: Custom layout for the reset-password page.
   - **/questions**: The page for couples to answer questions.
   - **/games**: The page for couples to play games.
   - **/chat**: The page for users to chat with an AI.
@@ -46,6 +50,11 @@ CouplesApp is a web application designed to help couples strengthen their relati
 - **User Login**: The login page allows existing users to sign in with their email and password. Upon successful login, they are redirected to their home page.
     - **Loading State**: The login button provides visual feedback, showing "Logging in..." and becoming disabled during the authentication process to prevent multiple submissions.
     - **Sign-up Link**: A link to the signup page is provided for users who do not yet have an account.
+    - **Forgot Password Link**: A link to the forgot password page is provided.
+- **Password Reset**: A full password reset feature has been implemented.
+    - **Forgot Password Page**: The `/forgot-password` page allows users to enter their email to receive a reset link. It provides clear feedback on success or failure.
+    - **Reset Password Page**: The `/reset-password` page allows users, who have clicked the link in their email, to set a new password. It includes validation to ensure the new passwords match and notifies the user upon successful reset before redirecting them to the login page.
+    - **Supabase Integration**: The flow is securely handled by Supabase, using `resetPasswordForEmail` to send the link and `updateUser` to set the new password.
 - **Account Pairing**: The pairing page allows users to connect their account with their partner's.
     - **Skip Option**: A "Skip for now" button is included on the pairing page. This allows a user who registers first to bypass this step and proceed to their home page, as their partner will not have a code yet.
 - **Hydration Warning**: Suppressed a React hydration warning in the root layout.

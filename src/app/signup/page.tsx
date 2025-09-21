@@ -18,26 +18,43 @@ export default function SignUpPage() {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null); // Clear previous errors
+    console.log('Attempting to sign up with:', {
+      email,
+      name,
+      dob,
+      sex,
+      orientation,
+      anniversary,
+    });
+
     if (!name || !email) {
       setError('Name and email are required');
       return;
     }
-    const { error } = await supabase.auth.signUp({
+
+    const metadata: { [key: string]: any } = {
+      name,
+    };
+
+    if (dob) metadata.dob = dob;
+    if (sex) metadata.sex = sex;
+    if (orientation) metadata.orientation = orientation;
+    if (anniversary) metadata.anniversary = anniversary;
+
+    const { data, error } = await supabase.auth.signUp({
       email, 
       password,
       options: {
-        data: {
-          name,
-          dob,
-          sex,
-          orientation,
-          anniversary,
-        }
+        data: metadata,
       }
     });
+
     if (error) {
-      setError(error.message);
+      console.error('Supabase signUp error:', error);
+      setError(`Database error saving new user: ${error.message}`);
     } else {
+      console.log('SignUp successful, user:', data.user);
       router.push('/pairing');
     }
   };
