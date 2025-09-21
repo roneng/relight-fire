@@ -1,55 +1,36 @@
-
-# Couples Web App Blueprint
+# CouplesApp Blueprint
 
 ## Overview
 
-This document outlines the structure, design, and features of the Couples Web App. It serves as a single source of truth for the project, from its initial version to the current state.
+CouplesApp is a web application designed to help couples strengthen their relationship through various interactive features. It includes sections for answering questions, playing games, and chatting with an AI for relationship advice.
 
-## Implemented Features
+## Project Structure
 
-### Version 1.0 (Initial Skeleton)
+- **/app**: Main directory for application routes.
+  - **/components**: Reusable React components.
+    - `Header.tsx`: The main header navigation for desktop.
+    - `Footer.tsx`: The main footer navigation for mobile.
+  - `layout.tsx`: The root layout for the application.
+  - `page.tsx`: The landing page.
+  - **/home**: The user's home/dashboard page.
+  - **/login**: The user login page.
+  - **/signup**: The user signup page.
+  - **/pairing**: The page for users to pair their accounts.
+  - **/questions**: The page for couples to answer questions.
+  - **/games**: The page for couples to play games.
+  - **/chat**: The page for users to chat with an AI.
+  - **/profile**: The user's profile page.
+- **/lib**:
+  - `firebase.ts`: Firebase configuration and initialization.
 
-*   **Global Layout:**
-    *   Top fixed header with Brand/Title, Language Switcher, and Notifications Bell.
-    *   Bottom fixed navigation menu for mobile.
-    *   Responsive main content area.
-*   **Pages:**
-    *   Landing Page
-    *   Login
-    *   Sign Up
-    *   Pairing
-    *   Home
-    *   Questions
-    *   Games
-    *   Chat with AI
-    *   Profile/Settings
-    *   Legal (Terms & Privacy)
-*   **Styling:**
-    *   A vibrant, refreshing, and colorful UI.
-    *   Mobile-first responsive design.
-    *   Dark/light mode friendly.
-*   **Internationalization (i18n):**
-    *   Support for English (EN) and Hebrew (HE).
-    *   Live language switcher with LTR/RTL support.
+## Design and Features
+
+- **Responsive Design**: The app uses a combination of a fixed header for desktop and a fixed footer for mobile to provide an optimal user experience on different devices.
+- **Dark Mode**: The application supports a dark mode theme.
+- **Component-Based Architecture**: The UI is built with reusable React components.
+- **Authentication**: User authentication is handled by Firebase.
 
 ## Current Plan
 
-The current plan is to build the frontend skeleton of the Couples Web App. This includes creating all the necessary pages with a global layout but without any backend logic. The focus is on the UI structure, navigation, and visual design.
-
-### Steps:
-
-1.  **Project Setup:**
-    *   Configure Firebase server in `.idx/mcp.json`.
-    *   Update global styles in `src/app/globals.css`.
-2.  **Global Layout:**
-    *   Create a root layout (`src/app/layout.tsx`) with a header and a footer.
-    *   Implement a `Header` component with navigation links and a language switcher.
-    *   Implement a `Footer` component with navigation links for mobile.
-3.  **Page Creation:**
-    *   Create all the required pages as separate React components under the `/src/app` directory.
-    *   Each page will have a placeholder UI.
-4.  **Styling and Design:**
-    *   Apply a consistent and modern design across all pages.
-    *   Ensure the layout is responsive across different screen sizes.
-5.  **i18n Setup:**
-    *   Implement a basic language switching mechanism.
+- **Initial Setup**: Create the basic file structure and pages for the application.
+- **Authentication**: Add Firebase for user authentication, including login, signup, and logout functionality.
