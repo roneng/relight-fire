@@ -12,7 +12,7 @@ export default function ChatPage() {
           </div>
           <div className="flex justify-end">
             <div className="bg-blue-500 text-white p-3 rounded-lg max-w-xs">
-              <p>I'd like to get some ideas for a date night.</p>
+              <p>I&apos;d like to get some ideas for a date night.</p>
             </div>
           </div>
         </div>
